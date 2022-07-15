@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ehsankhalili/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run ehsankhalili/docker-react yarn test -- --coberage
